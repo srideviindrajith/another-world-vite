@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" fill="none">
+  <defs>
+    <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8ff"/>
+      <stop offset="100%" stop-color="#2f7bff"/>
+    </linearGradient>
+    <linearGradient id="wordmarkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f4f8ff"/>
+      <stop offset="50%" stop-color="#2f7bff"/>
+      <stop offset="100%" stop-color="#4fc3ff"/>
+    </linearGradient>
+    <linearGradient id="galaxyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4fc3ff"/>
+      <stop offset="50%" stop-color="#2f7bff"/>
+      <stop offset="100%" stop-color="#0b1a4a"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="starGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Emblem Group -->
+  <g transform="translate(50, 30)">
+    <!-- Orbit Ring -->
+    <ellipse cx="125" cy="140" rx="90" ry="35" transform="rotate(-15 125 140)" stroke="url(#brandGradient)" stroke-width="2" fill="none" opacity="0.6">
+      <animateTransform attributeName="transform" type="rotate" from="-15 125 140" to="345 125 140" dur="20s" repeatCount="indefinite"/>
+    </ellipse>
+
+    <!-- Planet on orbit -->
+    <circle cx="60" cy="155" r="6" fill="#4fc3ff" filter="url(#glow)">
+      <animateMotion dur="20s" repeatCount="indefinite" path="M60,155 A90,35 -15 1,1,190,125 A90,35 -15 1,1,60,155"/>
+    </circle>
+
+    <!-- Letter A -->
+    <path d="M125 60 L70 190 L90 190 L100 160 L150 160 L160 190 L180 190 L125 60 Z M108 140 L125 90 L142 140 L108 140 Z" fill="url(#brandGradient)" filter="url(#glow)"/>
+
+    <!-- Galaxy inside A -->
+    <ellipse cx="125" cy="140" rx="30" ry="15" fill="url(#galaxyGradient)" opacity="0.7" filter="url(#glow)">
+      <animate attributeName="opacity" values="0.7;0.9;0.7" dur="3s" repeatCount="indefinite"/>
+    </ellipse>
+
+    <!-- Four-point star at top right -->
+    <g filter="url(#starGlow)">
+      <path d="M190 40 L192 46 L198 48 L192 50 L190 56 L188 50 L182 48 L188 46 Z" fill="#f4f8ff">
+        <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="280" y="125" font-family="Inter, system-ui, sans-serif" font-size="80" font-weight="600" letter-spacing="4" fill="#f4f8ff">ANOTHER</text>
+  <text x="280" y="215" font-family="Inter, system-ui, sans-serif" font-size="80" font-weight="600" letter-spacing="4" fill="url(#wordmarkGradient)">WORLD</text>
+</svg>

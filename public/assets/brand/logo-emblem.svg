@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8ff"/>
+      <stop offset="100%" stop-color="#2f7bff"/>
+    </linearGradient>
+    <linearGradient id="galaxyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4fc3ff"/>
+      <stop offset="50%" stop-color="#2f7bff"/>
+      <stop offset="100%" stop-color="#0b1a4a"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="starGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Orbit Ring -->
+  <ellipse cx="256" cy="280" rx="180" ry="70" transform="rotate(-15 256 280)" stroke="url(#brandGradient)" stroke-width="3" fill="none" opacity="0.6">
+    <animateTransform attributeName="transform" type="rotate" from="-15 256 280" to="345 256 280" dur="20s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- Planet on orbit -->
+  <circle cx="120" cy="310" r="12" fill="#4fc3ff" filter="url(#glow)">
+    <animateMotion dur="20s" repeatCount="indefinite" path="M120,310 A180,70 -15 1,1,392,250 A180,70 -15 1,1,120,310"/>
+  </circle>
+
+  <!-- Letter A -->
+  <path d="M256 120 L140 380 L180 380 L200 320 L312 320 L332 380 L372 380 L256 120 Z M216 280 L256 180 L296 280 L216 280 Z" fill="url(#brandGradient)" filter="url(#glow)"/>
+
+  <!-- Galaxy inside A -->
+  <ellipse cx="256" cy="280" rx="60" ry="30" fill="url(#galaxyGradient)" opacity="0.7" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="3s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- Four-point star at top right -->
+  <g filter="url(#starGlow)">
+    <path d="M380 80 L384 92 L396 96 L384 100 L380 112 L376 100 L364 96 L376 92 Z" fill="#f4f8ff">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+    </path>
+  </g>
+</svg>
